@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { RouterModule } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -20,6 +20,7 @@ import { CustomerPreviewModule } from '../public/customer-preview/customer-previ
     NgZorroAntdModule,
     NgRelaxModule
   ],
-  entryComponents: []
+  entryComponents: [],
+  providers: [ DatePipe ]
 })
 export class CustomerModule { }

@@ -2,7 +2,7 @@ import { CustomerPreviewModule } from './../modules/public/customer-preview/cust
 import { AppReuseStrategy } from './../core/app-reuse-strategy';
 import { NgRelaxModule } from './../ng-relax/ng-relax.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule,DatePipe } from '@angular/common';
 
 import { BaseRoutingModule } from './base-routing.module';
 import { BaseComponent } from './base.component';
@@ -23,6 +23,6 @@ import { MemberComponent } from './header/member/member.component';
     CustomerPreviewModule
   ],
   entryComponents: [MemberComponent],
-  providers: [AppReuseStrategy]
+  providers: [AppReuseStrategy,DatePipe]
 })
 export class BaseModule { }

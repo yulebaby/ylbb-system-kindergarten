@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 
 import { ReserveComponent } from './list/list.component';
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
@@ -21,7 +21,8 @@ import { CustomerPreviewModule } from '../public/customer-preview/customer-previ
     CustomerPreviewModule
   ],
   declarations: [ReserveComponent],
-  entryComponents: [ReserveComponent]
+  entryComponents: [ReserveComponent],
+  providers: [ DatePipe ]
 })
 
 export class ReserveModule { }

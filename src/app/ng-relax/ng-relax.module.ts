@@ -1,6 +1,6 @@
 import { AliOssClientService } from './services/alioss-client.service';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -68,7 +68,8 @@ import { QueryFlexComponent } from './components/query-flex/query-flex.component
     CacheService,
     MonthdiffPipe,
     AuthGuardService,
-    AliOssClientService
-  ]
+    AliOssClientService,
+    DatePipe
+  ],
 })
 export class NgRelaxModule { }

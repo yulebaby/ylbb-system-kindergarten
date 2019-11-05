@@ -1,7 +1,7 @@
 import { ErrorComponent } from './error/error.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 import { ChangelogComponent } from './changelog/changelog.component';
 import { ClauseComponent } from './clause/clause.component';
 import { HelpComponent } from './help/help.component';
@@ -35,6 +35,7 @@ const routes: Routes = [
     NgZorroAntdModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ChangelogComponent, ClauseComponent, HelpComponent, ErrorComponent]
+  declarations: [ChangelogComponent, ClauseComponent, HelpComponent, ErrorComponent],
+  providers: [ DatePipe ]
 })
 export class SystemModule { }

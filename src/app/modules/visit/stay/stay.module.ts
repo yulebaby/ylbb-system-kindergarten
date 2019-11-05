@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 import { StayComponent } from './stay.component';
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -19,6 +19,7 @@ import { CustomerPreviewModule } from '../../public/customer-preview/customer-pr
       component: StayComponent
     }]),
     CustomerPreviewModule,
-  ]
+  ],
+  providers: [ DatePipe ]
 })
 export class StayModule { }

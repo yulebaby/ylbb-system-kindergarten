@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 import { PasswordComponent } from './password.component';
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
       path: '',
       component: PasswordComponent
     }])
-  ]
+  ],
+  providers: [ DatePipe ]
 })
 export class PasswordModule { }

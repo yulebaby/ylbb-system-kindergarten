@@ -1,6 +1,6 @@
 import { MenuComponent } from './menu/menu.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 
 import { RoleComponent } from './role.component';
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
     NgRelaxModule,
     NgZorroAntdModule
   ],
-  entryComponents: [MenuComponent]
+  entryComponents: [MenuComponent],
+  providers: [ DatePipe ]
 })
 export class RoleModule { }

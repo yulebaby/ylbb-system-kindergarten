@@ -148,6 +148,11 @@ export const MenuConfig = [
         title : '基础设置',
         key   : '/home/setting/config',
         isLeaf: true
+      },
+      {
+        title : '班级设置',
+        key   : '/home/setting/class',
+        isLeaf: true
       }
     ]
   },

@@ -1,6 +1,6 @@
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule,DatePipe } from '@angular/common';
 
 import { IndexComponent } from './index.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -24,6 +24,7 @@ import { CustomerPreviewModule } from '../public/customer-preview/customer-previ
     NgZorroAntdModule,
     CustomerPreviewModule
   ],
-  entryComponents: [UpdateComponent, ListComponent]
+  entryComponents: [UpdateComponent, ListComponent],
+  providers: [DatePipe]
 })
 export class IndexModule { }

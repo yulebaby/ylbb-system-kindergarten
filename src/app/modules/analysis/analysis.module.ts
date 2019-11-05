@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule,DatePipe } from '@angular/common';
 import { AnalysisComponent } from './analysis.component';
 import { RouterModule } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -18,6 +18,7 @@ import { TeacherComponent } from './teacher/teacher.component';
     }]),
     NgZorroAntdModule,
     NgRelaxModule
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class AnalysisModule { }

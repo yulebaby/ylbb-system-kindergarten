@@ -1,6 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
 import { MonitorComponent } from './monitor.component';
@@ -20,6 +20,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
     ])
   ],
   declarations: [MonitorComponent, UpdateComponent],
-  entryComponents: [UpdateComponent]
+  entryComponents: [UpdateComponent],
+  providers: [ DatePipe ]
 })
 export class MonitorModule { }

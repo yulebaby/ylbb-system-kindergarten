@@ -1,6 +1,6 @@
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 
 import { ListComponent } from './list/list.component';
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
     NgRelaxModule
   ],
   declarations: [ListComponent, UpdateComponent],
-  entryComponents: [UpdateComponent]
+  entryComponents: [UpdateComponent],
+  providers: [ DatePipe ]
 })
 export class TeacherModule { }

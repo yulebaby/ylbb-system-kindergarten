@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ServiceComponent } from './service.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -21,6 +21,7 @@ import { UpdateComponent } from './update/update.component';
     NgRelaxModule,
     QuillModule.forRoot()
   ],
-  entryComponents: [UpdateComponent]
+  entryComponents: [UpdateComponent],
+  providers: [ DatePipe ]
 })
 export class ServiceModule { }

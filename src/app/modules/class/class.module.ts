@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule,DatePipe } from '@angular/common';
 
 import { ListComponent } from './list/list.component';
 import { UpdateComponent } from './list/update/update.component';
@@ -21,6 +21,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
     NgRelaxModule
   ],
   declarations: [ListComponent, UpdateComponent, PreviewComponent],
-  entryComponents: [UpdateComponent, PreviewComponent]
+  entryComponents: [UpdateComponent, PreviewComponent],
+  providers: [DatePipe]
 })
 export class ClassModule { }

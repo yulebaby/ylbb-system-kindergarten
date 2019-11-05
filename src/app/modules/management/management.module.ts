@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 import { ManagementComponent } from './management.component';
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
 
@@ -17,6 +17,7 @@ import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
         component: ManagementComponent
       }
     ])
-  ]
+  ],
+  providers: [ DatePipe ]
 })
 export class ManagementModule { }

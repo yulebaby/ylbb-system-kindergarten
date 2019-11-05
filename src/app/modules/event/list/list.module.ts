@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 
 import { ListComponent } from './list.component';
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
@@ -21,6 +21,7 @@ import { AddComponent } from './add/add.component';
     NgRelaxModule
   ],
   declarations: [ListComponent, UpdateComponent, AddComponent],
-  entryComponents: [UpdateComponent, AddComponent]
+  entryComponents: [UpdateComponent, AddComponent],
+  providers:[ DatePipe ]
 })
 export class ListModule { }

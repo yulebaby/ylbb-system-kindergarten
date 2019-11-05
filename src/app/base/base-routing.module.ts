@@ -75,6 +75,12 @@ const routes: Routes = [
             data: { title: '基础设置' },
             canLoad: [AuthGuardService],
             loadChildren: 'src/app/modules/setting/config/config.module#ConfigModule'
+          },
+          {
+            path: 'class',
+            data: { title: '班级管理' },
+            canLoad: [AuthGuardService],
+            loadChildren: 'src/app/modules/class/class.module#ClassModule'
           }
         ]
       },

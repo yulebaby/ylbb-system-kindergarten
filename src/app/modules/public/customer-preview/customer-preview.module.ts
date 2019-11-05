@@ -2,7 +2,7 @@ import { SelectCardComponent } from './select-card/select-card.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule , DatePipe } from '@angular/common';
 import { UpdateComponent } from './update/update.component';
 import { PreviewComponent } from './preview/preview.component';
 import { InformationComponent } from './preview/information/information.component';
@@ -26,6 +26,7 @@ import { DelayComponent } from './delay/delay.component';
     NgRelaxModule,
     NgZorroAntdModule
   ],
-  entryComponents: [UpdateComponent, PreviewComponent, PaymentComponent, ClassComponent, LeavingComponent, DetailedComponent, AppointComponent, DelayComponent, SelectCardComponent]
+  entryComponents: [UpdateComponent, PreviewComponent, PaymentComponent, ClassComponent, LeavingComponent, DetailedComponent, AppointComponent, DelayComponent, SelectCardComponent],
+  providers: [ DatePipe ]
 })
 export class CustomerPreviewModule { }
