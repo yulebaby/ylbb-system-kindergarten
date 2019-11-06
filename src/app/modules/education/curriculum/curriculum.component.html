@@ -1,0 +1,32 @@
+<div class="container">
+  <ea-query [node]="queryNode" (onSubmit)="EaTable.request($event)"></ea-query>
+
+  <div class="ea-button-group">
+    <button nz-button [nzType]="'primary'" style="margin-bottom: 16px;" (click)="addCustomer()">添加课程</button>
+  </div>
+
+  <ea-table #EaTable [thead]="tableNode" [EaTableTbodyTr]="EaTableTbodyTr" [allowSpace]="false" url="/membermanage/clue/waitReturnList">
+    <ng-template let-data #EaTableTbodyTr>
+      <td><a (click)="preview({id: data.id, source: 'visit'})">{{ data.nickName }}</a></td>
+      <td><a (click)="preview({id: data.id, source: 'visit'})">{{ data.studentName }}</a></td>
+      <td>{{ data.birthday || '--' }}</td>
+      <td>{{ data.sex }}</td>
+      <td>{{ data.monthAge }}</td>
+      <td>{{ data.mobilePhone }}</td>
+      <td>{{ data.createTime }}</td>
+      <td>
+        <ng-container>
+          <a>下载教案</a>
+        </ng-container>
+        <nz-divider nzType="vertical"></nz-divider>
+        <ng-container>
+          <a>编辑</a>
+        </ng-container>
+        <nz-divider nzType="vertical"></nz-divider>
+        <ng-container>
+          <a>停卡</a>
+        </ng-container>
+      </td>
+    </ng-template>
+  </ea-table>
+</div>

@@ -103,17 +103,11 @@ export class UploadFileComponent implements OnInit {
     return true;
   }
 
-  private _allowUpdateType = ['jpg', 'jpeg', 'png', 'gif', 'mp4'];
+ 
   private _validatorUploadFile(file: UploadFile): Observable<any> {
     return new Observable(observer => {
       let fileType = file.name.split('.')[file.name.split('.').length - 1].toLowerCase();
-      if (this._allowUpdateType.indexOf(fileType) === -1) {
-        this.message.error(`请选择格式为 ${this._allowUpdateType.join(' | ')} 的文件`);
-        observer.next(null);
-        observer.complete();
-      } else {
         let fileName = new Date().getTime() + `.${fileType}`;
-        
         this[fileType != 'mp4' ? '_aliOssClientImage' : '_aliOssClientVideo'].multipartUpload(fileName, file, {}).then(res => {
           let imageSrc = res.url ? res.url : 'http://' + res.bucket + '.oss-cn-beijing.aliyuncs.com/' + res.name;
           let arr = this.files || [];
@@ -131,7 +125,7 @@ export class UploadFileComponent implements OnInit {
           observer.complete();
           this.message.error('图片上传失败，请重新尝试');
         })
-      }
+      
     })
   }
 

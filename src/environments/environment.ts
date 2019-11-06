@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
   version: '0.0.0',
-  // domain: 'http://39.107.232.95:6014/first_light/kindergarten',
-  // domainEs: 'http://testes.haochengzhang.com/es/',
-  domain: 'http://service.wislightgroup.com/first_light/kindergarten',
-  domainEs: 'http://es.haochengzhang.com/es/',
+  domain: 'http://39.107.232.95:6014/first_light/kindergarten',
+  domainEs: 'http://testes.haochengzhang.com/es/',
+  // domain: 'http://service.wislightgroup.com/first_light/kindergarten',
+  // domainEs: 'http://es.haochengzhang.com/es/',
 };
 
 /*
@@ -18,3 +18,4 @@ export const environment = {
  * because it will have performance impact when throw error
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+ 

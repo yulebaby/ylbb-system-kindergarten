@@ -81,6 +81,12 @@ const routes: Routes = [
             data: { title: '班级管理' },
             canLoad: [AuthGuardService],
             loadChildren: 'src/app/modules/class/class.module#ClassModule'
+          },
+          {
+            path: 'teacher',
+            data: { title: '老师管理' },
+            canLoad: [AuthGuardService],
+            loadChildren: 'src/app/modules/teacher/teacher.module#TeacherModule'
           }
         ]
       },
@@ -126,19 +132,47 @@ const routes: Routes = [
           },
         ]
       },
+      // {
+      //   path: 'analysis',
+      //   data: { title: '数据管理' },
+      //   canLoad: [AuthGuardService],
+      //   loadChildren: 'src/app/modules/analysis/analysis.module#AnalysisModule'
+      // },
       {
         path: 'analysis',
-        data: { title: '数据管理' },
-        canLoad: [AuthGuardService],
-        loadChildren: 'src/app/modules/analysis/analysis.module#AnalysisModule'
+        data: { noReuse: true },
+        children: [
+          {
+            path: 'management',
+            data: { title: '收入/退款分析' },
+            canLoad: [AuthGuardService],
+            loadChildren: 'src/app/modules/management/management.module#ManagementModule'          },
+          {
+            path: 'list',
+            data: { title: '全部学位' },
+            canLoad: [AuthGuardService],
+            loadChildren: 'src/app/modules/analysis/all/all.module#AllModule'
+          },
+          {
+            path: 'class',
+            data: { title: '班级学位' },
+            canLoad: [AuthGuardService],
+            loadChildren: 'src/app/modules/analysis/class/class.module#ClassModule'
+          },
+          {
+            path: 'teacher',
+            data: { title: '老师服务' },
+            canLoad: [AuthGuardService],
+            loadChildren: 'src/app/modules/analysis/teacher/teacher.module#TeacherModule'
+          },
+        ]
       },
       {
         path: 'management',
         data: { title: '经营分析' },
         canLoad: [AuthGuardService],
         loadChildren: 'src/app/modules/management/management.module#ManagementModule'
-      },
-      {
+      },      {
         path: 'visit',
         data: { noReuse: true },
         children: [
@@ -165,6 +199,18 @@ const routes: Routes = [
             data: { title: '待分配' },
             canLoad: [AuthGuardService],
             loadChildren: 'src/app/modules/visit/distribution/distribution.module#DistributionModule'
+          }
+        ]
+      },
+      {
+        path: 'education',
+        data: { noReuse: true },
+        children: [
+          {
+            path: 'curriculum',
+            data: { title: '课程管理' },
+            canLoad: [AuthGuardService],
+            loadChildren: 'src/app/modules/education/curriculum/curriculum.module#CurriculumModule'
           }
         ]
       },

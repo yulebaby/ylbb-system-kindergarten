@@ -50,6 +50,19 @@ export const MenuConfig = [
     ]
   },
   {
+    title : '教务管理',
+    brief : '教务',
+    key   : '/home/education',
+    icon  : 'appstore',
+    children : [
+      {
+        title : '课程管理',
+        key   : '/home/education/curriculum',
+        isLeaf: true
+      }
+    ]
+  },
+  {
     title : '事件管理',
     brief : '事件',
     key   : '/home/event',
@@ -67,34 +80,63 @@ export const MenuConfig = [
       }
     ]
   },
+  // {
+  //   title : '员工管理',
+  //   brief : '员工',
+  //   key   : '/home/teacher',
+  //   icon  : 'team',
+  //   isLeaf: true
+  // },
+  // {
+  //   title : '班级管理',
+  //   brief : '班级',
+  //   key   : '/home/class',
+  //   icon  : 'solution',
+  //   isLeaf: true
+  // },
+  // {
+  //   title : '预约坑位占用统计',
+  //   brief : '数据',
+  //   key   : '/home/analysis',
+  //   icon  : 'database',
+  //   isLeaf: true
+  // },
+
   {
-    title : '员工管理',
-    brief : '员工',
-    key   : '/home/teacher',
-    icon  : 'team',
-    isLeaf: true
-  },
-  {
-    title : '班级管理',
-    brief : '班级',
-    key   : '/home/class',
-    icon  : 'solution',
-    isLeaf: true
-  },
-  {
-    title : '预约坑位占用统计',
+    title : '数据中心',
     brief : '数据',
     key   : '/home/analysis',
     icon  : 'database',
-    isLeaf: true
+    children : [
+      {
+        title : '收入/退款',
+        key   : '/home/analysis/management',
+        isLeaf: true
+      },
+      {
+        title : '全部学位',
+        key   : '/home/analysis/list',
+        isLeaf: true
+      },
+      {
+        title : '班级学位',
+        key   : '/home/analysis/class',
+        isLeaf: true
+      },
+      {
+        title : '老师服务',
+        key   : '/home/analysis/teacher',
+        isLeaf: true
+      }
+    ]
   },
-  {
-    title : '经营分析',
-    brief : '经营',
-    key   : '/home/management',
-    icon  : 'line-chart',
-    isLeaf: true
-  },
+  // {
+  //   title : '经营分析',
+  //   brief : '经营',
+  //   key   : '/home/management',
+  //   icon  : 'line-chart',
+  //   isLeaf: true
+  // },
   {
     title : '商品管理',
     brief : '商品',
@@ -152,6 +194,11 @@ export const MenuConfig = [
       {
         title : '班级设置',
         key   : '/home/setting/class',
+        isLeaf: true
+      },
+      {
+        title : '员工设置',
+        key   : '/home/setting/teacher',
         isLeaf: true
       }
     ]
