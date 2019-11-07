@@ -33,7 +33,7 @@ export class ImportComponent implements OnInit {
     if (e.type === 'success') {
       this.message.create(e.file.response.result == 1000 ? 'success' : 'warning', e.file.response.message);
       if (e.file.response.result == 1000) {
-        this.message.success(e.file.response.message);
+        this.message.success(e.file.response.message || '操作成功');
       } else {
         this.uploadResult = e.file.response.data.errorClues;
         this.uploadInfo = `本次上传结果（${e.file.response.message}）`;
@@ -41,9 +41,8 @@ export class ImportComponent implements OnInit {
     }
   }
   getData(){
-    this.http.post('/membermanage/returnVisit/getMemberFrom').then(res => {
-      this.listOfData = res.data;
-      console.log(this.listOfData);
+    this.http.post('/course/listCourseType').then(res => {
+      this.listOfData = res.data.list;
     });
   }
   addClass(){
@@ -54,11 +53,56 @@ export class ImportComponent implements OnInit {
     this.listOfData.unshift(json);
   }
   saveEdit(data){
-    console.log(data);
+    if(!data.name){
+      this.message.warning('类别名称不能为空！');
+      return false;
+    }
+    let url:  string;
+    if(!data.id){
+        url =  '/course/saveCourseType';
+    }else{
+       url = '/course/updateCourseType';
+    }
+    this.http.post(url,{
+      paramJson: JSON.stringify({
+        id: data.id || null,
+        name : data.name,
+        description: data.description
+      })
+    }).then(res => {
+      if(res.result == 1000){
+        this.message.success('操作成功');
+        data.edit = false;
+        this.getData();
+      }else{
+        this.message.warning(res.message);
+      }
+    });
+  }
+  delete(data){
+    this.http.post('/course/updateCourseType',{
+      paramJson: JSON.stringify({
+        id: data.id,
+        status: -1
+      })
+    }).then(res => {
+      if(res.result == 1000){
+        this.message.success('操作成功');
+        data.edit = false;
+        this.getData();
+      }else{
+        this.message.warning(res.message);
+      }
+    });
+  }
+  cancel(data){
+    if(!data.id){
+        this.listOfData.splice(0,1);
+    }
     data.edit = false;
   }
-  save() {
-    this.drawerRef.close(true)
-  }
+  // save() {
+  //   this.drawerRef.close(true)
+  // }
   
 }

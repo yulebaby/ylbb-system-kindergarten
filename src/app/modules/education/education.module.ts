@@ -4,16 +4,15 @@ import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ImportComponent } from './public/import/import.component';
 import { UpdateComponent } from './public/update/update.component';
-import { AddclassComponent } from './public/addclass/addclass.component';
 
 @NgModule({
-  declarations: [UpdateComponent, ImportComponent, AddclassComponent],
+  declarations: [UpdateComponent, ImportComponent],
   imports: [
     CommonModule,
     NgRelaxModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
   ],
-  entryComponents: [UpdateComponent, ImportComponent, AddclassComponent],
+  entryComponents: [UpdateComponent, ImportComponent],
   providers: [ DatePipe ]
 }) 
 export class EducationModule { }

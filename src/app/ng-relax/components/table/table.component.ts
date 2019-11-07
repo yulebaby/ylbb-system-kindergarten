@@ -98,9 +98,9 @@ export class TableComponent implements OnInit {
       { pageNum: isReset ? 1 : this._pageInfo.pageNum, pageSize: this._pageInfo.pageSize }
     )
     Object.keys(paramJson).map(key => { if (paramJson[key] === '' || paramJson[key] === null) { delete paramJson[key] } });
-    let params = this.isParamJson ? { paramJson: JSON.stringify(paramJson) } : paramJson;
+    let params = this.isParamJson ? { paramJson: JSON.stringify(paramJson), pageNum: this._pageInfo.pageNum, pageSize : this._pageInfo.pageSize } : paramJson;
     this.paramsInit = {};
-    this.timeout ? setTimeout(_ => this._getData(params), this.timeout) : this._getData(params);
+    this.timeout ? setTimeout(_ => this._getData(params,), this.timeout) : this._getData(params);
   }
   request(params): void {
     this._params = params;
@@ -108,6 +108,7 @@ export class TableComponent implements OnInit {
   }
 
   private _getData(params) {
+    console.log(serialize(params));
     this.http.post<any>(this.url, serialize(params), {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
     }).subscribe(res => {
@@ -132,7 +133,7 @@ export class TableComponent implements OnInit {
           this.dataChange.emit(this.dataSet);
         }
       } else {
-        this.message.warning(res.message);
+        this.message.warning(res.message || '操作成功');
       }
     }, err => {
       this._pageInfo.loading = false;

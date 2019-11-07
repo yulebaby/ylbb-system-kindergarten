@@ -1,111 +1,116 @@
 <form nz-form [formGroup]="formGroup">
-  <nz-row [nzGutter]="8">
-    <nz-col [nzSpan]="12">
-      <nz-form-item>
-        <nz-form-label nzRequired>课程名称</nz-form-label>
-        <nz-form-control>
-          <input nz-input formControlName="studentName" placeholder="请输入课程名称">
-          <nz-form-explain *ngIf="valid('studentName')">请输入课程名称</nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-    </nz-col>
-  </nz-row>
     <nz-row [nzGutter]="8">
-    <nz-col [nzSpan]="12">
-      <nz-form-item>
-        <nz-form-label nzRequired>课程类别</nz-form-label>
-        <nz-form-control>
-          <nz-select formControlName="followerId" nzPlaceHolder="请选择课程类别">
-            <nz-option *ngFor="let item of teacherList" [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
-          </nz-select>
-          <nz-form-explain *ngIf="valid('followerId')">请选择成长顾问</nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-    </nz-col>
-    <nz-col [nzSpan]="12">
-      <nz-form-item>
-        <div style="width:100%; height:40px;"></div>
-        <nz-form-control>
-          <a (click)="addCustomer()">编辑课程类别</a>
-        </nz-form-control>
-      </nz-form-item>
-    </nz-col>    
+      <nz-col [nzSpan]="12">
+        <nz-form-item>
+          <nz-form-label nzRequired>课程名称</nz-form-label>
+          <nz-form-control>
+            <input nz-input formControlName="name" placeholder="请输入课程名称">
+            <nz-form-explain *ngIf="valid('name')">请输入课程名称</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+    </nz-row>
+      <nz-row [nzGutter]="8">
+      <nz-col [nzSpan]="12">
+        <nz-form-item>
+          <nz-form-label nzRequired>课程类别</nz-form-label>
+          <nz-form-control>
+            <nz-select formControlName="typeId" nzPlaceHolder="请选择课程类别">
+              <nz-option *ngFor="let item of listCourseType" [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
+            </nz-select>
+            <nz-form-explain *ngIf="valid('typeId')">请选择成长顾问</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col [nzSpan]="12">
+        <nz-form-item>
+          <div style="width:100%; height:40px;"></div>
+          <nz-form-control>
+            <a (click)="addCustomer()">编辑课程类别</a>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>    
+      </nz-row>
+      <nz-row [nzGutter]="8">
+      <nz-col [nzSpan]="12">
+        <nz-form-item>
+          <nz-form-label nzRequired>适用年龄（月龄）</nz-form-label>
+          <nz-form-control>
+            <input type="text" formControlName="startMonth" nz-input placeholder="最小月龄" style="width:120px; text-align: center;" />
+            <input
+              type="text"
+              disabled
+              nz-input
+              placeholder="~"
+              style="width: 30px; border-left: 0px; pointer-events: none; background-color: rgb(255, 255, 255);"
+            />
+            <input type="text" formControlName="endMonth" nz-input placeholder="最大月龄" style="width: 120px; text-align: center; border-left: 0px;" />
+            <nz-form-explain *ngIf="valid('startMonth') || valid('endMonth')">请输入正确的月龄</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
+      <nz-col [nzSpan]="12">
+        <nz-form-item>
+          <nz-form-label nzRequired>上课时长</nz-form-label>
+          <nz-form-control>
+            <nz-input-group  nzAddOnAfter="分钟">
+              <input type="text" formControlName="duration" nz-input />
+            </nz-input-group>
+            <nz-form-explain *ngIf="valid('duration')">请输入上课时长</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-col>
     </nz-row>
     <nz-row [nzGutter]="8">
-    <nz-col [nzSpan]="12">
-      <nz-form-item>
-        <nz-form-label nzRequired>适用年龄（月龄）</nz-form-label>
+        <nz-form-label nzRequired>课程封面</nz-form-label>
         <nz-form-control>
-          <input type="text" formControlName="followerId" nz-input placeholder="最小月龄" style="width:150px; text-align: center;" />
-          <input
-            type="text"
-            disabled
-            nz-input
-            placeholder="~"
-            style="width: 30px; border-left: 0px; pointer-events: none; background-color: rgb(255, 255, 255);"
-          />
-          <input type="text" formControlName="followerId" nz-input placeholder="最大月龄" style="width: 150px; text-align: center; border-left: 0px;" />
-          <nz-form-explain *ngIf="valid('followerId')">请输入正确的月龄</nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-    </nz-col>
-    <nz-col [nzSpan]="12">
-      <nz-form-item>
-        <nz-form-label nzRequired>上课时长</nz-form-label>
+            <ea-upload-picture  [maxLength]="1" formControlName="cover"  ></ea-upload-picture> 
+            <nz-form-explain *ngIf="valid('cover')">请选择课程封面</nz-form-explain>
+          </nz-form-control>
+    </nz-row> 
+    <nz-row [nzGutter]="8">
+        <nz-form-label nzRequired>课程目标</nz-form-label>
         <nz-form-control>
-          <nz-input-group  nzAddOnAfter="分钟">
-            <input type="text" formControlName="memberFromId" nz-input />
-          </nz-input-group>
-          <nz-form-explain *ngIf="valid('memberFromId')">请选择来源</nz-form-explain>
+            <textarea  nz-input placeholder="请输入课程目标" formControlName="goal" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+            <nz-form-explain *ngIf="valid('goal')">请输入课程目标</nz-form-explain>
+          </nz-form-control>
+    </nz-row>  
+    <nz-row [nzGutter]="8">
+        <nz-form-label nzRequired>课程效果</nz-form-label>
+        <nz-form-control>
+            <textarea  nz-input placeholder="请输入上课能达成的效果" formControlName="gain" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+            <nz-form-explain *ngIf="valid('gain')">请输入课程效果</nz-form-explain>
+          </nz-form-control>
+    </nz-row>  
+    <nz-row [nzGutter]="8">
+        <nz-form-label>教材教具</nz-form-label>
+        <nz-form-control>
+            <textarea  nz-input placeholder="请输入上课所需书本名称、教具名称及数量等。" formControlName="realia" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+          </nz-form-control>
+    </nz-row> 
+    <nz-row [nzGutter]="8">
+        <nz-form-label>教案</nz-form-label>
+        <nz-form-control>
+            <ea-upload-file  [maxLength]="1" formControlName="lesson"  ></ea-upload-file> 
+          </nz-form-control>
+    </nz-row> 
+    <nz-row [nzGutter]="8">
+        <nz-form-label>视频教案</nz-form-label>
+        <nz-form-control>
+          <nz-upload
+          [nzBeforeUpload]="beforeUpload" 
+          [(nzFileList)]="files" 
+          [nzShowButton]="files?.length < allowuploadNo">
+          <button nz-button [nzLoading]="isLoadingfile">
+            <i nz-icon type="upload"></i><span>点击上传文件</span>
+          </button>
+        </nz-upload>
         </nz-form-control>
-      </nz-form-item>
-    </nz-col>
-  </nz-row>
-  <nz-row [nzGutter]="8">
-      <nz-form-label nzRequired>课程目标</nz-form-label>
-      <nz-form-control>
-          <textarea  nz-input placeholder="请输入课程目标"  [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
-          <nz-form-explain *ngIf="valid('memberFromId')">请输入课程目标</nz-form-explain>
-        </nz-form-control>
-  </nz-row>  
-  <nz-row [nzGutter]="8">
-      <nz-form-label nzRequired>课程效果</nz-form-label>
-      <nz-form-control>
-          <textarea  nz-input placeholder="请输入上课能达成的效果"  [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
-          <nz-form-explain *ngIf="valid('memberFromId')">请输入课程效果</nz-form-explain>
-        </nz-form-control>
-  </nz-row>  
-  <nz-row [nzGutter]="8">
-      <nz-form-label>教材教具</nz-form-label>
-      <nz-form-control>
-          <textarea  nz-input placeholder="请输入上课所需书本名称、教具名称及数量等。"  [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
-          <nz-form-explain *ngIf="valid('memberFromId')">请输入教材教具</nz-form-explain>
-        </nz-form-control>
-  </nz-row> 
-  <nz-row [nzGutter]="8">
-      <nz-form-label>教案</nz-form-label>
-      <nz-form-control>
-          <ea-upload-file [maxLength]="1" ></ea-upload-file> 
-        </nz-form-control>
-  </nz-row> 
-  <nz-row [nzGutter]="8">
-      <nz-form-label>视频教案</nz-form-label>
-      <nz-form-control>
-        <nz-upload
-        [nzBeforeUpload]="beforeUpload" 
-        [(nzFileList)]="files" 
-        [nzRemove]="deleteFile"
-        [nzShowButton]="files?.length < allowuploadNo">
-        <button nz-button>
-          <i nz-icon type="upload"></i><span>点击上传文件</span>
-        </button>
-      </nz-upload>
-      </nz-form-control>
-  </nz-row> 
-
-</form>
-
-<div class="drawer-footer">
-  <button nz-button (click)="close()">取消</button>
-  <button nz-button nzType="primary" [nzLoading]="saveLoading" (click)="save()">保存</button>
-</div>
+    </nz-row> 
+  
+  </form>
+  
+  <div class="drawer-footer">
+    <button nz-button (click)="close()">取消</button>
+    <button nz-button nzType="primary" [nzLoading]="saveLoading" (click)="saves()">保存</button>
+  </div>

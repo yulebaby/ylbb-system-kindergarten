@@ -6,7 +6,7 @@
     <ng-template #item let-item>
       <nz-list-item>
         <nz-skeleton [nzAvatar]="true" [nzActive]="true" [nzTitle]="false" [nzLoading]="item.loading">
-          <nz-list-item-meta [nzTitle]="nzTitle" [nzAvatar]="item.eventIcon" [nzDescription]="item.showTime">
+          <nz-list-item-meta [nzTitle]="nzTitle" [nzAvatar]="item.eventIcon" [nzDescription]="item.startTime">
             <ng-template #nzTitle>
               <h2>
                 {{ item.eventName }}

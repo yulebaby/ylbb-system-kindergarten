@@ -4,7 +4,6 @@ import { CommonModule , DatePipe } from '@angular/common';
 import { ClassComponent } from './class.component';
 import { NgRelaxModule } from 'src/app/ng-relax/ng-relax.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { AnalysisModule } from '../analysis.module';
 import { RouterModule } from '@angular/router';
 import { CustomerPreviewModule } from '../../public/customer-preview/customer-preview.module';
 @NgModule({
@@ -13,7 +12,6 @@ import { CustomerPreviewModule } from '../../public/customer-preview/customer-pr
     CommonModule,
     NgRelaxModule,
     NgZorroAntdModule,
-    AnalysisModule,
     RouterModule.forChild([{
       path: '',
       component: ClassComponent

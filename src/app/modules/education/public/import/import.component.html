@@ -5,29 +5,38 @@
         <thead>
             <tr>
               <th>名称</th>
+              <th>描述</th>
               <th>操作</th>
             </tr>
           </thead>
           <tbody>
               <tr *ngFor="let data of listOfData">
-                  <td style="width:450px;">
+                  <td >
                       <ng-container *ngIf="!data.edit; else nameInputTpl">
-                          {{ data.fromName }}
+                          {{ data.name }}
                         </ng-container>
                         <ng-template #nameInputTpl>
-                          <input type="text" nz-input [(ngModel)]="data.fromName" />
+                          <input type="text" nz-input [(ngModel)]="data.name" />
+                        </ng-template>
+                  </td>
+                  <td >
+                      <ng-container *ngIf="!data.edit; else descriptionInputTpl">
+                          {{ data.description }}
+                        </ng-container>
+                        <ng-template #descriptionInputTpl>
+                          <input type="text" nz-input [(ngModel)]="data.description" />
                         </ng-template>
                   </td>
                   <td>
                       <ng-container *ngIf="!data.edit; else saveTpl">
                           <a (click)="data.edit = true;">编辑</a>
                           <nz-divider nzType="vertical"></nz-divider>
-                          <a nz-popconfirm nzTitle="确认删除此类别吗?" (nzOnConfirm)="delete(data.cardTypeId)">删除</a>
+                          <a nz-popconfirm nzTitle="确认删除此类别吗?" (nzOnConfirm)="delete(data)">删除</a>
                         </ng-container>
                         <ng-template #saveTpl>
                           <a (click)="saveEdit(data)">保存</a>
                           <nz-divider nzType="vertical"></nz-divider>
-                          <a (click)="data.edit = false;">取消</a>
+                          <a (click)="cancel(data)">取消</a>
                         </ng-template>
           
           
@@ -37,6 +46,6 @@
     </nz-table>
 </div>
 
-<div class="drawer-footer">
-  <button nz-button nzType="primary" (click)="save()">确定</button>
-</div>
+<!-- <div class="drawer-footer">
+  <button nz-button nzType="primary" (click)="save()"></button>
+</div> -->

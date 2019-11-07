@@ -5,26 +5,31 @@
     <button nz-button [nzType]="'primary'" style="margin-bottom: 16px;" (click)="addCustomer()">添加课程</button>
   </div>
 
-  <ea-table #EaTable [thead]="tableNode" [EaTableTbodyTr]="EaTableTbodyTr" [allowSpace]="false" url="/membermanage/clue/waitReturnList">
+  <ea-table #EaTable [thead]="tableNode" [EaTableTbodyTr]="EaTableTbodyTr" [allowSpace]="false"
+    url="/course/queryCourse">
     <ng-template let-data #EaTableTbodyTr>
-      <td><a (click)="preview({id: data.id, source: 'visit'})">{{ data.nickName }}</a></td>
-      <td><a (click)="preview({id: data.id, source: 'visit'})">{{ data.studentName }}</a></td>
-      <td>{{ data.birthday || '--' }}</td>
-      <td>{{ data.sex }}</td>
-      <td>{{ data.monthAge }}</td>
-      <td>{{ data.mobilePhone }}</td>
-      <td>{{ data.createTime }}</td>
+      <td>{{ data.name }}</td>
+      <td>
+        <ng-container *ngFor="let item of listCourseType">
+          {{  item.id ==  data.typeId ? item.name : '' }}
+        </ng-container>
+      </td>
+      <td>{{ data.duration || '--' }}</td>
+      <td>{{ data.goal }}</td>
+      <td>{{ data.gain }}</td>
+      <td>{{ data.realia }}</td>
+      <td>{{ data.status == 0 ? '启用' : '停用'  }}</td>
       <td>
         <ng-container>
-          <a>下载教案</a>
+          <a (click)="download(data)">下载教案</a>
         </ng-container>
         <nz-divider nzType="vertical"></nz-divider>
         <ng-container>
-          <a>编辑</a>
+          <a (click)="addCustomer(data)">编辑</a>
         </ng-container>
         <nz-divider nzType="vertical"></nz-divider>
         <ng-container>
-          <a>停卡</a>
+          <a (click)="updataStatus(data)">{{ data.status != 0 ? '启用' : '停用'  }}</a>
         </ng-container>
       </td>
     </ng-template>

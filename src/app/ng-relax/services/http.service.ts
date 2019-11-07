@@ -25,7 +25,7 @@ export class HttpService {
       this.http.post<YlbbResponse>(url, serialize(query), {
         headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
       }).subscribe(res => {
-        (auto && res.result) && this.message.create(res.result == 1000 ? 'success' : 'warning', res.message);
+        (auto && res.result) && this.message.create(res.result == 1000 ? 'success' : 'warning', res.message || '操作成功' );
         (auto && res.result != 1000) ? reject(res) : resolve(res);
       });
     })
@@ -34,7 +34,7 @@ export class HttpService {
   get(url: string, query: object = {}, auto?: boolean): Promise<any> {
     return new Promise((resolve, reject) => {
       this.http.get<YlbbResponse>(url, { params: new HttpParams({ fromString: serialize(query) }) }).subscribe(res => {
-        (auto && res.result) && this.message.create(res.result == 1000 ? 'success' : 'warning', res.message);
+        (auto && res.result) && this.message.create(res.result == 1000 ? 'success' : 'warning', res.message || '操作成功');
         (auto && res.result != 1000) ? reject(res) : resolve(res);
       });
     })

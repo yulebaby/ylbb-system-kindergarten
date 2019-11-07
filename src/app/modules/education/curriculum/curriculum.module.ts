@@ -20,6 +20,6 @@ import { CustomerPreviewModule } from '../../public/customer-preview/customer-pr
     }]),
     CustomerPreviewModule,
   ],
-  providers: [ DatePipe ]
+  providers: [ DatePipe ],
 })
 export class CurriculumModule { }

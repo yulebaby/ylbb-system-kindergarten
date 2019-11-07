@@ -48,6 +48,7 @@ export class QueryComponent implements OnInit {
 
   storeId: number;
   ngOnInit() {
+   
     this.store.select('userInfoState').subscribe(userInfo => this.storeId = userInfo.kindergartenId);
     this._queryForm = new FormGroup({});
     this.node.map((res: any, idx) => {
@@ -84,7 +85,7 @@ export class QueryComponent implements OnInit {
             condition,
             pageNum: 1,
             pageSize: 10
-          }, res.params || {})).then(result => {
+          }, res.params || {}),).then(result => {
             if (result.data) {
               result.data.list.map(d => d.text = d.name.replace(/<\/?[^>]*>/g, ''));
               res.options = result.data.list;
