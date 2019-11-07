@@ -3,9 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { NzDrawerRef , NzDrawerService , UploadFile } from 'ng-zorro-antd';
 import { DrawerClose } from 'src/app/ng-relax/decorators/drawer/close.decorator';
-import { DrawerSave } from 'src/app/ng-relax/decorators/drawer/save.decorator';
 import { ControlValid } from 'src/app/ng-relax/decorators/form/valid.decorator';
-import { DrawerCreate } from 'src/app/ng-relax/decorators/drawer/create.decorator';
 import { ImportComponent } from '../import/import.component';
 import { Observable } from 'rxjs';
 import   PlvVideoUpload  from '@polyv/vod-upload-js-sdk'
