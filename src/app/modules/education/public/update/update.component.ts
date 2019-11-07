@@ -143,7 +143,7 @@ export class UpdateComponent implements OnInit {
     })
   }
   beforeUpload = (file: UploadFile): boolean => {
-    this._validatorUploadFile(file);
+    this._validatorUploadFile(file).subscribe(res => { })
     return false;
   }
   private _validatorUploadFile(file: UploadFile): Observable<any> {
