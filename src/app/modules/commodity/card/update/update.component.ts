@@ -45,7 +45,9 @@ export class UpdateComponent implements OnInit {
         this.formGroup.removeControl('day')
       }
     });
-    this.formGroup.patchValue(this.cardTypeInfo || { type: 1});
+    let cardTypeInfo = this.cardTypeInfo ? JSON.parse(JSON.stringify(this.cardTypeInfo)) : null;
+    cardTypeInfo.lowestDiscount = cardTypeInfo.lowestDiscount ? cardTypeInfo.lowestDiscount * 10 : null; 
+    this.formGroup.patchValue(cardTypeInfo || { type: 1});
   }
 
   @ControlValid() valid: (key, type?) => boolean;
@@ -57,6 +59,7 @@ export class UpdateComponent implements OnInit {
     } else {
       this.saveLoading = true;
       let params = JSON.parse(JSON.stringify(this.formGroup.value));
+      params.lowestDiscount = params.lowestDiscount / 10;
       params.cardDesc = encodeURIComponent(params.cardDesc);
       params.cardTypeName = encodeURIComponent(params.cardTypeName);
       this.http.post('/commodity/card/saveCard', {
@@ -72,7 +75,7 @@ export class UpdateComponent implements OnInit {
 
   private _lowestDiscountValidator = (control: AbstractControl): { [key: string]: any } | null => {
     try {
-      return Number(control.value) >= 0 && Number(control.value) <= 1 && (/^\d+(\.\d{1,2})?$/).test(control.value) ? null : { error: true }; 
+      return Number(control.value) >= 0 && Number(control.value) <= 10 && (/^([1-9]|10)\.?\d*/).test(control.value) ? null : { error: true }; 
     } catch (error) {
       return null;
     }

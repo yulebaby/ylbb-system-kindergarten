@@ -64,9 +64,11 @@
       <nz-form-item>
         <nz-form-label nzRequired>最低折扣</nz-form-label>
         <nz-form-control>
-          <input nz-input formControlName="lowestDiscount" placeholder="请输入最低折扣（0-1）">
+            <nz-input-group nzAddOnAfter="折">
+          <input nz-input formControlName="lowestDiscount" placeholder="请输入最低折扣（1-10）">
+          </nz-input-group>
           <nz-form-explain *ngIf="valid('lowestDiscount')">请输入最低折扣！</nz-form-explain>
-          <nz-form-explain *ngIf="valid('lowestDiscount', 'error')">请输入正确的最低折扣（0-1）！</nz-form-explain>
+          <nz-form-explain *ngIf="valid('lowestDiscount', 'error')">请输入正确的最低折扣（1-10）！</nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>

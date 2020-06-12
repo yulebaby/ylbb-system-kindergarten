@@ -151,8 +151,7 @@ export class TableComponent implements OnInit {
       this._pageInfo.loading = false;
       if (res.result == 1000) {
         if (res.data) {
-          
-          let dataSet = res.data.list || res.data;
+          let dataSet = res.data.list || res.data || [];
           dataSet.map(item => {
             item.isJSON = this.isJSON(item.lastFollowContent) || false;
             if(item.isJSON){

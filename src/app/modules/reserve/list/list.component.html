@@ -17,12 +17,11 @@
     条记录</div>
   <ng-template let-data #EaTableTbodyTr>
     <td>
-      <nz-avatar nzShape="square" [nzOverlayStyle]="{padding: '0 !important'}" nzPlacement="rightBottom"
-        [nzSrc]="data.headPhoto" nz-tooltip [nzTitle]="titleTemplate"></nz-avatar>
-      <ng-template #titleTemplate>
-        <img [src]="data.headPhoto"
-          [ngStyle]="{'max-width': '226px', 'max-height': '400px', 'transform': 'scale(1.1)'}">
-      </ng-template>
+          <nz-avatar [nzIcon]="'user'" [nzOverlayStyle]="{padding: '0 !important'}" nzPlacement="rightBottom"
+          [nzSrc]="data.headPhoto" nz-tooltip [nzTitle]="data.headPhoto ? titleTemplate : null"></nz-avatar>
+        <ng-template #titleTemplate>
+          <img [src]="data.headPhoto" [ngStyle]="{'max-width': '226px', 'max-height': '400px', 'transform': 'scale(1.1)'}">
+        </ng-template>
     </td>
     <td>{{ data.studentNum }}</td>
     <td><a (click)="preview({ id: data.studentId })">{{ data.studentName }}</a></td>
