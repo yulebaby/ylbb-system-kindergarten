@@ -16,9 +16,10 @@
           </ng-container>
         </div>
         <ea-table #cardTypeTable url="/commodity/card/getCardTypeList" (clickData)="select($event, 'card')" [paramsDefault]="{ isOnline: true}"
-          [thead]="['卡名称', '卡类型', '最低折扣', '售价']" [EaTableTbodyTr]="EaTableTbodyTr0">
+          [thead]="['卡名称', '剩余天数/月份' ,'卡类型', '最低折扣', '售价']" [EaTableTbodyTr]="EaTableTbodyTr0">
           <ng-template let-data #EaTableTbodyTr0>
             <td>{{ data.cardTypeName }}</td>
+            <td>{{ data.day ? data.day + '天' : data.month ? data.month + '月' : '--' }}</td>
             <td>{{ data.cardTypeCategoryName }}</td>
             <td>{{ data.lowestDiscount }}</td>
             <td>{{ data.price }}</td>

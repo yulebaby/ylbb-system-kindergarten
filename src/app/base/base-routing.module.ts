@@ -218,11 +218,6 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'test',
-        data: { title: '大萨达撒' },
-        loadChildren: 'src/app/modules/test/test.module#TestModule'
-      },
-      {
         path: 'management',
         data: { title: '经营分析' },
         canLoad: [AuthGuardService],

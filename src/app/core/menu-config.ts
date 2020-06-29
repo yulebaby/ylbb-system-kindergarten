@@ -219,13 +219,6 @@ export const MenuConfig = [
     ]
   },
   {
-    title : '测试',
-    brief : '测试',
-    key   : '/home/test',
-    icon  : 'desktop',
-    isLeaf: false
-  },
-  {
     title : '设置',
     brief : '设置',
     key   : '/home/setting',

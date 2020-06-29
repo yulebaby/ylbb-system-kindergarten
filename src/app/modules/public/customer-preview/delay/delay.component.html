@@ -8,7 +8,7 @@
     <nz-form-item>
       <nz-form-label nzRequired>延期时间</nz-form-label>
       <nz-form-control>
-        <nz-range-picker [nzDisabledDate]="disabledDate" formControlName="time" [nzPlaceHolder]="['开始时间', '结束时间']"></nz-range-picker>
+        <nz-range-picker  formControlName="time" [nzPlaceHolder]="['开始时间', '结束时间']"></nz-range-picker>
         <nz-form-explain *ngIf="valid('time')">请选择延期时间！</nz-form-explain>
         <nz-form-explain *ngIf="valid('time', 'error')">延期时间必须选择10天及以上！</nz-form-explain>
       </nz-form-control>
