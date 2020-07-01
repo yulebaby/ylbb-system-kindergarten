@@ -38,7 +38,7 @@ export class InformationComponent implements OnInit {
   ngOnInit() {
     let jsons:any = {};
     this.http.post('/attribute/getAllAttribute').then(res => {
-      let data = res.data;
+      let data = res.data || this.jsonData;
       this.jsonData = JSON.parse(JSON.stringify(data));
       this.http.post('/attribute/getAttributeByStudent', { studentId	: this.memberInfo.studentInfo.studentId  }).then(res => {      
         const list = res.data;

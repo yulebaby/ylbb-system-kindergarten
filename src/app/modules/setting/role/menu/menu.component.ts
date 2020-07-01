@@ -35,7 +35,7 @@ export class MenuComponent implements OnInit {
       const storeId = userInfo.kindergartenId;
       let menuConfig = JSON.parse(JSON.stringify(this.menuConfig));
       menuConfig.map(res => {
-        if(storeId == 1){
+        if(storeId != 1){
           if(res.key == '/home/education'){
             const children = res.children.filter(item=> item.key != '/home/education/plan' && item.key != '/home/education/curriculum' )
             res.children = children;

@@ -32,7 +32,7 @@ export class DelayComponent implements OnInit {
   ngOnInit() {
     this.formGroup = this.fb.group({
       studentId: [this.id],
-      time: [, [Validators.required, this._timeValidator()]],
+      time: [, [Validators.required]],
       startTime: [],
       endTime: [],
       reason: [, [Validators.required]],

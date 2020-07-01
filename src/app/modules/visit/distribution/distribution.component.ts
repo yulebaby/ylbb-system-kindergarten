@@ -190,7 +190,7 @@ export class DistributionComponent implements OnInit {
 
   ngOnInit() {
     this.http.post('/attribute/getAllAttribute').then(res => {
-      let data = res.data;
+      let data = res.data || this.jsonData;
       this.jsonData = JSON.parse(JSON.stringify(data));
       let dataArr = Object.keys(data);
       dataArr.map(item => {

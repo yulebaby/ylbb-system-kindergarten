@@ -83,6 +83,8 @@ export class QueryComponent implements OnInit {
           this.httpservice.post(res.searchUrl, Object.assign({
             storeId: this.storeId,
             condition,
+            pageSize:100,
+            pageNum:1
     
           }, res.params || {})).then(result => {
             if (result.data) {
